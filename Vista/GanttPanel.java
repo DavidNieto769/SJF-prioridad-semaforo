@@ -5,7 +5,8 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
-public class GanttPanel extends TablePanel {
+public class
+GanttPanel extends TablePanel {
 
 	TableCellRedendererColor cellRenderer;
 //	private DefaultTableModel tableModel;

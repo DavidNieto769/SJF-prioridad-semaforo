@@ -52,8 +52,6 @@ public class Controller {
 				view.getPanelTableReadyQueue().removeRow(0, String.valueOf(data[0]));
 				view.getPanelTable().getTableModel().addRow(data);
 				view.getPanelTableGantt().paintProcess(data);
-
-
 			} else {
 				JOptionPane.showMessageDialog(null, "¡No hay ningún procesos por atender!", "Atender",
 						JOptionPane.WARNING_MESSAGE);

@@ -69,12 +69,12 @@ public class SJF {
 				if (data.getPriority() == i) {
 					if (data.getArrivalTime() <= currentFinalTime) {
 
-						semaforo.setBackground(Color.red);
+						semaforo.cambiarSemaforo(Color.red);
+						System.out.println("Se cambió a rojo");
 						Thread.sleep(1000);
 						queue.remove(j);
-						semaforo.setBackground(Color.green);
-
-
+						System.out.println("Se cambió a verde");
+						semaforo.cambiarSemaforo(Color.green);
 						return data;
 					}
 				}

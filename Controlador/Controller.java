@@ -47,6 +47,7 @@ public class Controller {
 	private void pollAction() {
 		try {
 			if (!model.getQueueReady().isQueueEmpty()) {
+				view.getPanelSemaforo().setButton(view.getPanelAction().getBtnPoll());
 				model.getQueueReady().setSemaforo(view.getPanelSemaforo());
 				Object[] data = model.getQueueReady().getDataProcess(model.getQueueReady().pollProcessByPriority());
 				view.getPanelTableReadyQueue().removeRow(0, String.valueOf(data[0]));

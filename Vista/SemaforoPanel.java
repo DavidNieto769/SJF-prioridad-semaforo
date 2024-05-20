@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class SemaforoPanel extends JPanel {
 
-
+    private JButton button;
 
     public SemaforoPanel(JFrame window, String title) {
         super();
@@ -19,6 +19,7 @@ public class SemaforoPanel extends JPanel {
         setVisible(true);
         setBackground(Color.red);
     }
+    public void setButton(JButton boton){this.button = boton;}
 
     public void cambiarSemaforo(Color color){
 
@@ -26,10 +27,22 @@ public class SemaforoPanel extends JPanel {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(1000);
-                    setBackground(color);
-                    revalidate();
-                    repaint();
+                    if(color==Color.red){
+                        Thread.sleep(1000);
+                        button.setBackground(Color.red);
+                        button.setEnabled(false);
+                        setBackground(color);
+                        revalidate();
+                        repaint();
+                    }else{
+                        Thread.sleep(1000);
+                        button.setBackground(Color.green);
+                        button.setEnabled(true);
+                        setBackground(color);
+                        revalidate();
+                        repaint();
+                    }
+
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();

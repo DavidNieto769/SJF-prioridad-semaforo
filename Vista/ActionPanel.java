@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 public class ActionPanel extends JPanel {
 
 	private JButton btnInit;
+	private JButton btnAuto;
+	private JButton btnAutoAtender;
 	private JButton btnPoll;
 	private JButton btnAdd;
 	private JButton btnLock;
@@ -18,6 +20,12 @@ public class ActionPanel extends JPanel {
 
 		btnInit = new JButton("Iniciar");
 		add(btnInit);
+
+		btnAuto = new JButton("Auto");
+		add(btnAuto);
+
+		btnAutoAtender = new JButton("AutoAtender");
+		add(btnAutoAtender);
 
 		btnPoll = new JButton("Atender");
 		add(btnPoll);
@@ -43,7 +51,14 @@ public class ActionPanel extends JPanel {
 	public JButton getBtnInit() {
 		return btnInit;
 	}
-
+	public JButton getBtnAuto()
+	{
+		return btnAuto;
+	}
+	public JButton getBtnAutoAtender()
+	{
+		return btnAutoAtender;
+	}
 	public void setBtnInit(JButton btnInit) {
 		this.btnInit = btnInit;
 	}

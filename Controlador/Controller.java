@@ -1,5 +1,8 @@
 package Controlador;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,6 +22,8 @@ public class Controller {
 	public void initController(String[] columnName) {
 		setTableColumName(columnName);
 		view.getPanelAction().getBtnInit().addActionListener(e -> initAction());
+		view.getPanelAction().getBtnAuto().addActionListener(e-> autoAction());
+		view.getPanelAction().getBtnAutoAtender().addActionListener(e-> autoAtenderAction());
 		view.getPanelAction().getBtnPoll().addActionListener(e -> pollAction());
 		view.getPanelAction().getBtnAdd().addActionListener(e -> addAction());
 		view.getPanelAction().getBtnLock().addActionListener(e -> lockAction());
@@ -32,6 +37,40 @@ public class Controller {
 		if (view.getPanelTable().getTableModel() == null)
 			view.getPanelTable().setTableModel(new DefaultTableModel(columnName, 0));
 			view.getPanelTableGantt().setTableModel(new DefaultTableModel(new Object[] { "PID" }, 0));
+	}
+	private void autoAction()
+	{
+		
+     TimerTask timerTask = new TimerTask()
+     {
+         public void run() 
+         {
+           addAction();
+         }
+     };
+
+
+     
+     Timer timer = new Timer();
+    
+     timer.scheduleAtFixedRate(timerTask, 0, 3000);
+	}
+	private void autoAtenderAction()
+	{
+		
+     TimerTask timerTask = new TimerTask()
+     {
+         public void run() 
+         {
+           pollAction();
+         }
+     };
+
+
+     
+     Timer timer = new Timer();
+    
+     timer.scheduleAtFixedRate(timerTask, 0, 5000);
 	}
 
 	private void initAction() {
